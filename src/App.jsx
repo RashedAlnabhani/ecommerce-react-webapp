@@ -1,39 +1,17 @@
-import CategoryList from "./components/category-list/category-list.component";
-import "./App.scss";
+import { Routes, Route } from "react-router-dom";
+import NavigationBar from "./routes/navigation/navigation.component";
+import SignIn from "./routes/sign-in/sing-in.component";
+import Home from "./routes/home/home.component";
 
 function App() {
-  const categories = [
-    {
-      id: 1,
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    },
-    {
-      id: 2,
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    },
-    {
-      id: 3,
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    },
-    {
-      id: 4,
-      title: "women",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    },
-    {
-      id: 5,
-      title: "men",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    },
-  ];
-
   return (
     <>
-      <h1>Categories</h1>
-      <CategoryList categories={categories} />
+      <Routes>
+        <Route path="/" element={<NavigationBar></NavigationBar>}>
+          <Route index element={<Home></Home>}></Route>
+          <Route path="sign-in" element={<SignIn></SignIn>}></Route>
+        </Route>
+      </Routes>
     </>
   );
 }
