@@ -1,9 +1,10 @@
-import { useEffect } from "react";
-import { getRedirectResult } from "firebase/auth";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
+
+import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+import Button from "../../components/button/button.component";
 
 const SignIn = () => {
   const logGoogleUser = async () => {
@@ -13,7 +14,10 @@ const SignIn = () => {
   return (
     <div>
       <h1>Sign In</h1>
-      <button onClick={logGoogleUser}>Sign In With Google Popup</button>
+      <SignUpForm />
+      <Button buttonType={"google"} onClick={logGoogleUser}>
+        Continue with Google
+      </Button>
     </div>
   );
 };
