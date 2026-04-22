@@ -4,6 +4,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
+import SignInForm from "../../components/sign-in-form/sign-in-form.component";
 import Button from "../../components/button/button.component";
 
 const SignIn = () => {
@@ -15,9 +16,7 @@ const SignIn = () => {
     <div>
       <h1>Sign In</h1>
       <SignUpForm />
-      <Button buttonType={"google"} onClick={logGoogleUser}>
-        Continue with Google
-      </Button>
+      <SignInForm />
     </div>
   );
 };
