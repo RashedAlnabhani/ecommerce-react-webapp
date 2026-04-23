@@ -38,10 +38,12 @@ const SignInForm = () => {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
-      if (error.code === "auth/user-not-found") {
-        alert("User not found");
-      } else if (error.code === "auth/wrong-password") {
-        alert("Wrong password");
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/invalid-credential"
+      ) {
+        alert("Incorrect email or password");
       } else {
         console.error("Error signing in user:", error);
       }
@@ -58,6 +60,7 @@ const SignInForm = () => {
           name="email"
           value={email}
           onChange={handleChange}
+          required
         />
         <FormInput
           label="Password"
@@ -65,11 +68,12 @@ const SignInForm = () => {
           name="password"
           value={password}
           onChange={handleChange}
+          required
         />
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
           <Button type="button" buttonType={"google"} onClick={logGoogleUser}>
-            Sign In With Google Popup
+            Google Sign In
           </Button>
         </div>
       </form>

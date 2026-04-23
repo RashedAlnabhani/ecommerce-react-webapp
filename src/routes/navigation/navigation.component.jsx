@@ -9,7 +9,7 @@ const NavigationBar = () => {
           <img className="logo" src={Logo} alt="logo" />
         </Link>
         <div className="nav-links-container">
-          <Link className="nav-link" to="/sign-in">
+          <Link className="nav-link" to="/authentication">
             SIGN IN
           </Link>
         </div>
